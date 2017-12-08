@@ -1,7 +1,20 @@
 class Run_Game
+
   def initialize
     @counter = 0
+    @intro = true
+    @quit = true
+    @answer = nil
+    @rubies = 0
+    @irb = false
   end
+
+  def end_game
+    while @quit == true
+      break
+    end
+  end
+
   def intro
     puts
     puts "          *   d888888o.   8 888888888o      .8.        *  ,o888888o.    8 8888888888         *"
@@ -56,9 +69,57 @@ class Run_Game
     puts "|                         Type ~start~ when you're ready to play                             |"
     puts "|____________________________________________________________________________________________|"
     puts
-    answer = gets.chomp
-    if answer.downcase == "start"
+    @answer = gets.chomp
+    if @answer.downcase == "start"
       @counter += 1
+      main_game
+    end
+    if @answer.downcase == "quit"
+      end_game
+    end
+  end
+
+  def main_game
+    if @intro == true
+      puts " ____________________________________________________________________________________________"
+      puts "|                                                                                            |"
+      puts "|  You awaken with a jolt. You feel your chest rise and fall as you tentertively check if    |"
+      puts "|  you're still alive... All good; you're still in the game! You've been out in the deep     |"
+      puts "|  corners of space for far too long now, and you've had way too many crashes. You sometimes |"
+      puts "|  wonder why YourBudgetSpacePilots(TM) ever let you out here in the first place... Hey!     |"
+      puts "|  Who are you kidding? You're the best asronaut this side of Leamington Spa and you'll be   |"
+      puts "|  darned-diddlied if anyone, even you, tells you otherwise!                                 |"
+      puts "|                                                                                            |"
+      puts "|  You ~look at your IRB~ which has fallen off the shelf, and then turn your head to ~look   |"
+      puts "|  at the window~. You should probably get up off the floor and do something.                |"
+      puts "|____________________________________________________________________________________________|"
+      puts
+      @intro == false
+      @answer = gets.chomp
+    end
+    while @counter == 1
+      if @answer.downcase == "look at your irb"
+        puts " ____________________________________________________________________________________________"
+        puts "|                                                                                            |"
+        puts "|  You get up and walk over to the IRB gun. It was a gift from your dad, the best astronaut  |"
+        puts "|  of all time, Roy Jiggins. You had a pretty hard act to follow, and the recent recession   |"
+        puts "|  meant that budget options were rife, even in the astronaut business.                      |"
+        puts "|                                                                                            |"
+        puts "|  You wipe the dust off of the IRB and wonder what it could possibly do. You've never       |"
+        puts "|  quite figured that one out, even though old man Jiggins said you'd find out soon. That    |"
+        puts "|  was twenty years ago... You go to put it back on the top shelf, when all of a sudden      |"
+        puts "|  the monitor start flashing \"2.4.1 :001\". Maybe you should ~take the IRB~ with you and     |"
+        puts "|  ~look at the window~.                                                                     |"
+        puts "|____________________________________________________________________________________________|"
+        @answer = gets.chomp
+      end
+      if @answer.downcase == "look at the window"
+        puts "You look at the window"
+        @answer = gets.chomp
+      end
+      if @answer.downcase == "quit"
+        end_game
+      end
     end
   end
 end
