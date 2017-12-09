@@ -51,23 +51,12 @@ intro = Run_Game.new
   intro.empty_line
   puts "|                         Type ~start~ when you're ready to play                             |"
   intro.bottom_text
-  loop do
   intro.user_input
+while $stage == 0
   if $answer == "start"
-    intro.top_text
-    puts "|  You awaken with a jolt. You feel your chest rise and fall as you tentatively check if     |"
-    puts "|  you're still alive... All good; you're still in the game! You've been out in the deep     |"
-    puts "|  corners of space for far too long now, and you've had way too many crashes. You sometimes |"
-    puts "|  wonder why CheepSpayce(TM) ever let you out here in the first place... Hey! Who are you   |"
-    puts "|  kidding? You're the best asronaut this side of Leamington Spa and you'll be gosh          |"
-    puts "|  darn-diddlied if anyone, even you, tells you otherwise!                                   |"
-    intro.empty_line
-    puts "|  You ~look at the IRB~ which has fallen off the shelf, and then turn your head to ~look    |"
-    puts "|  at the window~. You should probably get up off the floor and do something.                |"
-    intro.bottom_text
-    load '/Users/Wemblewomble/Projects/TextAdventure/chapter1.rb'
+    require_relative 'chapter1.rb'
   elsif $answer == "quit"
-    intro.byebye
+    break $stage
   else
     intro.unknown_input
   end

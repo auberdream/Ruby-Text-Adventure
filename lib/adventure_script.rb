@@ -12,14 +12,12 @@ class Run_Game
     $stage += 1
   end
 
-  def user_input
-    $answer = gets.chomp.downcase
+  def back_stage
+    $stage -= 1
   end
 
-  def byebye
-    while $quit == true
-      break
-    end
+  def user_input
+    $answer = gets.chomp.downcase
   end
 
   def top_text
@@ -41,12 +39,6 @@ class Run_Game
     puts "|  I don't understand. Make sure you're typing the commands as they're written!              |"
     bottom_text
   end
-
-  def start
-    require_relative 'intro.rb'
-  end
-
 end
 
-game = Run_Game.new
-game.start
+require_relative 'intro.rb'
