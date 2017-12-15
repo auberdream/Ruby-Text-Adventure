@@ -56,7 +56,7 @@ while $stage == 0
   if $answer == "start"
     require_relative 'chapter1.rb'
   elsif $answer == "quit"
-    break $stage
+    exit
   else
     intro.unknown_input
   end

@@ -2,7 +2,6 @@ class Run_Game
 
   def initialize
     $stage = 0
-    $quit = true
     $answer = nil
     $rubies = 0
     $irb = false
@@ -39,6 +38,7 @@ class Run_Game
     puts "|  I don't understand. Make sure you're typing the commands as they're written!              |"
     bottom_text
   end
+
 end
 
 require_relative 'intro.rb'
